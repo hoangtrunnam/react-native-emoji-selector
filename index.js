@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import {
   View,
   Text,
@@ -7,7 +9,6 @@ import {
   TextInput,
   Platform,
   ActivityIndicator,
-  AsyncStorage,
   FlatList
 } from "react-native";
 import emoji from "emoji-datasource";
