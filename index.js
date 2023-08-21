@@ -69,8 +69,9 @@ const emojiByCategory = category =>
 const sortEmoji = list => list.sort((a, b) => a.sort_order - b.sort_order);
 const categoryKeys = Object.keys(Categories);
 
-const TabBar = ({ theme, activeCategory, onPress, width }) => {
+const TabBar = ({ theme, activeCategory, onPress, width, fontSizeIconHeader }) => {
   const tabSize = width / categoryKeys.length;
+  const fontSizeIcon = fontSizeIconHeader || width / categoryKeys.length
 
   return categoryKeys.map(c => {
     const category = Categories[c];
@@ -92,7 +93,7 @@ const TabBar = ({ theme, activeCategory, onPress, width }) => {
             style={{
               textAlign: "center",
               paddingBottom: 8,
-              fontSize: tabSize - 24
+              fontSize: fontSizeIcon
             }}
           >
             {category.symbol}
@@ -283,6 +284,7 @@ export default class EmojiSelector extends Component {
       showSearchBar,
       showSectionTitles,
       showTabs,
+      fontSizeIconHeader,
       ...other
     } = this.props;
 
@@ -314,6 +316,7 @@ export default class EmojiSelector extends Component {
               onPress={this.handleTabSelect}
               theme={theme}
               width={this.state.width}
+              fontSizeIconHeader={fontSizeIconHeader}
             />
           )}
         </View>

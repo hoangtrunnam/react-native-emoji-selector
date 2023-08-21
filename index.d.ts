@@ -33,6 +33,7 @@ declare module "react-native-emoji-selector" {
     category?: Categories;
     columns?: number;
     shouldInclude?: (e: any)=>boolean;
+    fontSizeIconHeader?: number;
   }
 
   const EmojiSelector: React.ComponentType<EmojiSelectorProps>;
